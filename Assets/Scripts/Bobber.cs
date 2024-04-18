@@ -10,53 +10,44 @@ public class Bobber : MonoBehaviour
     [SerializeField] public float reelingSpeed = 1f;
 
     [SerializeField] Fish fish;
-    [SerializeField] Transform player;
+    [SerializeField] Player player;
 
     [SerializeField] EventManagerSO eventManager;
 
 
 
-    //private void Update()
-    //{
-    //    if (player != null)
-    //    {
-    //        Debug.Log("Player not null");
-    //        Debug.Log(player.transform.position);
-    //        Debug.Log(transform.position);
-    //        Debug.Log(reelingSpeed);
-    //    }
-    //}
-
-
     private void OnEnable()
     {
-        eventManager.OnFishBiting += ReelIn;
+        eventManager.OnFishBiting += ReelInDebug;
     }
     private void OnDisable()
     {
-        eventManager.OnFishBiting -= ReelIn;
+        eventManager.OnFishBiting -= ReelInDebug;
     }
+
 
     private void Awake()
     {
         isDetectable = false;
     }
 
+
     public void ActivateBobber()
     {
         isDetectable = true;
     }
-    private void ReelIn()
+
+    public void ReelInDebug()
     {
+        Debug.Log($"Reeling In!");
+    }
 
-        if (player != null)
-        {
-            Debug.Log($"Reeling In!");
-            
-                //transform.position = Vector3.MoveTowards(transform.position, player.transform.position, reelingSpeed * Time.deltaTime);
-            
-
-        }
+    public void ReelIn()
+    {
+            transform.position = Vector3.MoveTowards(
+            transform.position,
+            player.transform.position,
+            reelingSpeed * Time.deltaTime);
 
     }
 
