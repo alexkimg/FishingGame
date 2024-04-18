@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41da11c4eb477da4eafd75873039b112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: {fileID: 0}
+  path: {fileID: 6604911432243755516, guid: 4d795ea5aa25631438cbc1cded391e24, type: 3}
   speed: 1
   colliders: []
   bobber: {fileID: 5442011327300962513, guid: 7f4096f3b5e297c4f917e4c6417417b9, type: 3}
@@ -132,7 +132,6 @@ MonoBehaviour:
   isNibbling: 0
   isHooked: 0
   eventManager: {fileID: 11400000, guid: 6ba1dd705c5395c42ab9efa855743427, type: 2}
-  hudManager: {fileID: 0}
 --- !u!54 &5146272865443315316
 Rigidbody:
   m_ObjectHideFlags: 0

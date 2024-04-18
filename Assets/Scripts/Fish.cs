@@ -26,7 +26,7 @@ public class Fish : MonoBehaviour
     private float randomDelayMax = 3f;
 
     [SerializeField] EventManagerSO eventManager;
-    [SerializeField] HUDmanager hudManager;
+
 
 
     private void OnEnable()
@@ -110,8 +110,7 @@ public class Fish : MonoBehaviour
 
     IEnumerator FishNibbling()
     {
-        hudManager.status = "Fish is nibbling...";
-        hudManager.UpdateStatus();
+        eventManager.FishNibbling();
         yield return new WaitForSeconds(Random.Range(randomDelayMin, randomDelayMax));
         eventManager.FishBiting();
         
@@ -121,8 +120,7 @@ public class Fish : MonoBehaviour
     {
         if (isNibbling == true)
         {
-            hudManager.status = "BITE!";
-            hudManager.UpdateStatus();
+
             isNibbling = false;
             isHooked = true;
             transform.position = Vector3.MoveTowards(
