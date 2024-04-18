@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: aeb523a82e238c14fad4ad0a1d5cb7d8
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - fish: {instanceID: 0}
+  - player: {instanceID: 0}
+  - eventManager: {fileID: 11400000, guid: 6ba1dd705c5395c42ab9efa855743427, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
