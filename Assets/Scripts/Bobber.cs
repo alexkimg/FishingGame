@@ -42,14 +42,6 @@ public class Bobber : MonoBehaviour
         isDetectable = false;
     }
 
-    private void Update() 
-    { 
-        if(fish.isHooked == true)
-        {
-            Debug.Log($"Fish is Hooked!");
-            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, reelingSpeed * Time.deltaTime);
-        }
-    }
     public void ActivateBobber()
     {
         isDetectable = true;

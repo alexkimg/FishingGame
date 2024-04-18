@@ -27,6 +27,7 @@ public class Fish : MonoBehaviour
 
     [SerializeField] EventManagerSO eventManager;
 
+    [SerializeField] Transform player;
 
 
     private void OnEnable()
@@ -41,7 +42,7 @@ public class Fish : MonoBehaviour
 
     private void Update()
     {
-        if (!isNibbling)
+        if (!isNibbling && !isHooked)
         {
             if (bobber.isDetectable == true)
             {
@@ -59,32 +60,33 @@ public class Fish : MonoBehaviour
                     {
                         isNibbling = true;
                         targetBobber.isDetectable = false;
-                        StartCoroutine(FishNibbling() );
+                        StartCoroutine(FishNibbling());
 
 
                     }
 
                 }
             }
-           
-             
-                transform.LookAt(path.GetWaypoint(currentTargetWaypoint));
 
-                transform.position = Vector3.MoveTowards(
+
+
+            transform.LookAt(path.GetWaypoint(currentTargetWaypoint));
+
+            transform.position = Vector3.MoveTowards(
                     transform.position,
                     path.GetWaypoint(currentTargetWaypoint).position,
                     speed * Time.deltaTime);
 
-                if (Vector3.Distance(transform.position, path.GetWaypoint(currentTargetWaypoint).position) < 0.1f)
-                {
-                    currentTargetWaypoint = Random.Range(0, path.GetNumberOfWaypoints());
-                }
-
-            
-
+            if (Vector3.Distance(transform.position, path.GetWaypoint(currentTargetWaypoint).position) < 0.1f)
+            {
+                currentTargetWaypoint = Random.Range(0, path.GetNumberOfWaypoints());
+            }
         }
 
-        else
+
+
+
+        else if (isNibbling)
         {
             transform.position = Vector3.MoveTowards(
               transform.position,
@@ -95,6 +97,21 @@ public class Fish : MonoBehaviour
 
 
 
+        }
+
+        else if (isHooked)
+        {
+            bobber.transform.position = Vector3.MoveTowards(
+                transform.position, 
+                player.transform.position, 
+                bobber.reelingSpeed * Time.deltaTime);
+
+            transform.position = Vector3.MoveTowards(
+                        transform.position,
+                        bobber.transform.position,
+                        bobber.reelingSpeed * Time.deltaTime);
+
+            
         }
     }
 
@@ -113,6 +130,7 @@ public class Fish : MonoBehaviour
         eventManager.FishNibbling();
         yield return new WaitForSeconds(Random.Range(randomDelayMin, randomDelayMax));
         eventManager.FishBiting();
+        StopCoroutine(FishNibbling());
         
     }
 
@@ -123,12 +141,11 @@ public class Fish : MonoBehaviour
             Debug.Log($"Fish is hooked!");
             isNibbling = false;
             isHooked = true;
-            transform.position = Vector3.MoveTowards(
-                        transform.position,
-                        bobber.transform.position,
-                        bobber.reelingSpeed * Time.deltaTime);
+            //transform.position = Vector3.MoveTowards(
+            //            transform.position,
+            //            bobber.transform.position,
+            //            bobber.reelingSpeed * Time.deltaTime);
 
-            //bobber.transform.position = Vector3.MoveTowards(transform.position, player.transform.position, bobber.reelingSpeed * Time.deltaTime);
         }
     }
 }

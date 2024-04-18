@@ -132,6 +132,7 @@ MonoBehaviour:
   isNibbling: 0
   isHooked: 0
   eventManager: {fileID: 11400000, guid: 6ba1dd705c5395c42ab9efa855743427, type: 2}
+  player: {fileID: 6580290019074456783, guid: d53cc3d2a572fdb4eb55ba8d8ed5de03, type: 3}
 --- !u!54 &5146272865443315316
 Rigidbody:
   m_ObjectHideFlags: 0
