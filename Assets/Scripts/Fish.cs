@@ -25,6 +25,7 @@ public class Fish : MonoBehaviour
     private float randomDelayMin = 1f;
     private float randomDelayMax = 3f;
 
+
     [SerializeField] EventManagerSO eventManager;
 
 
@@ -42,6 +43,8 @@ public class Fish : MonoBehaviour
 
     private void Update()
     {
+
+
         if (!isNibbling && !isHooked)
         {
             if (bobber.isDetectable == true)

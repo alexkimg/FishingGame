@@ -364,7 +364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9ad5db8df2803948868e5bebc3d6382, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fish: {fileID: 3040179198450009429, guid: 7c32c21d54f55854193c1167f9cc701e, type: 3}
+  fish: {fileID: -8538818772440710995, guid: 4aa01f1d5c72d4e47a8c44e612a6b6fc, type: 3}
 --- !u!4 &821521964
 Transform:
   m_ObjectHideFlags: 0
