@@ -27,7 +27,7 @@ public class Fish : MonoBehaviour
 
     [SerializeField] EventManagerSO eventManager;
 
-    [SerializeField] Transform player;
+
 
 
     private void OnEnable()
@@ -91,7 +91,7 @@ public class Fish : MonoBehaviour
             transform.position = Vector3.MoveTowards(
               transform.position,
               targetBobber.transform.position,
-              (speed) * Time.deltaTime);
+              speed * Time.deltaTime);
             transform.Rotate(0f, 45f * rotationSpeed * Time.deltaTime, 0f, Space.Self);
 
 
@@ -101,16 +101,13 @@ public class Fish : MonoBehaviour
 
         else if (isHooked)
         {
-            bobber.transform.position = Vector3.MoveTowards(
-                transform.position, 
-                player.transform.position, 
-                bobber.reelingSpeed * Time.deltaTime);
+            targetBobber.ReelIn();
 
             transform.position = Vector3.MoveTowards(
                         transform.position,
-                        bobber.transform.position,
-                        bobber.reelingSpeed * Time.deltaTime);
-
+                        targetBobber.transform.position,
+                        targetBobber.reelingSpeed * Time.deltaTime);
+            
             
         }
     }

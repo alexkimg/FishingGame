@@ -29,9 +29,9 @@ Transform:
   m_GameObject: {fileID: 6912972460738145179}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.629948, y: 0.96004367, z: -4.5423217}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -123,5 +123,5 @@ MonoBehaviour:
   isDetectable: 1
   reelingSpeed: 2
   fish: {fileID: 3040179198450009429, guid: 7c32c21d54f55854193c1167f9cc701e, type: 3}
-  player: {fileID: 6580290019074456783, guid: d53cc3d2a572fdb4eb55ba8d8ed5de03, type: 3}
+  player: {fileID: 5806679104377499205, guid: e48547323f17bef429326d8445f8d120, type: 3}
   eventManager: {fileID: 11400000, guid: 6ba1dd705c5395c42ab9efa855743427, type: 2}
