@@ -30,11 +30,11 @@ public class Bobber : MonoBehaviour
 
     private void OnEnable()
     {
-        eventManager.onFishBiting += ReelIn;
+        eventManager.OnFishBiting += ReelIn;
     }
     private void OnDisable()
     {
-        eventManager.onFishBiting -= ReelIn;
+        eventManager.OnFishBiting -= ReelIn;
     }
 
     private void Awake()

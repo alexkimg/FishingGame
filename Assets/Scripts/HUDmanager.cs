@@ -15,19 +15,19 @@ public class HUDmanager : MonoBehaviour
 
     private void OnEnable()
     {
-        eventManager.onFishNibbling += UpdateStatusNibbling;
-        eventManager.onFishBiting += UpdateStatusBite;
+        eventManager.OnFishNibbling += UpdateStatusNibbling;
+        eventManager.OnFishBiting += UpdateStatusBite;
     }
 
     private void OnDisable()
     {
-        eventManager.onFishNibbling -= UpdateStatusNibbling;
-        eventManager.onFishBiting -= UpdateStatusBite;
+        eventManager.OnFishNibbling -= UpdateStatusNibbling;
+        eventManager.OnFishBiting -= UpdateStatusBite;
     }
 
     public void UpdateStatusNibbling()
     {
-        statusTextObject.text = $"Fish is Nibbling...";
+        statusTextObject.text = $"Fish is nibbling...";
     }
 
     public void UpdateStatusBite()

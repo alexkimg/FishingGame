@@ -7,16 +7,16 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="EventManager", menuName = "Managers/EventManager")]
 public class EventManagerSO : ScriptableObject
 {
-    public event Action onFishNibbling;
-    public event Action onFishBiting;
+    public event Action OnFishNibbling;
+    public event Action OnFishBiting;
 
     public void FishNibbling()
     {
-        onFishNibbling?.Invoke();
+        OnFishNibbling?.Invoke();
     }
 
     public void FishBiting()
     {
-        onFishBiting?.Invoke();
+        OnFishBiting?.Invoke();
     }
 }

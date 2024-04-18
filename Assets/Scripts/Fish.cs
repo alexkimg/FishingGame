@@ -31,11 +31,11 @@ public class Fish : MonoBehaviour
 
     private void OnEnable()
     {
-        eventManager.onFishBiting += HookFish;
+        eventManager.OnFishBiting += HookFish;
     }
     private void OnDisable()
     {
-        eventManager.onFishBiting -= HookFish;
+        eventManager.OnFishBiting -= HookFish;
     }
 
 
@@ -120,7 +120,7 @@ public class Fish : MonoBehaviour
     {
         if (isNibbling == true)
         {
-
+            Debug.Log($"Fish is hooked!");
             isNibbling = false;
             isHooked = true;
             transform.position = Vector3.MoveTowards(
