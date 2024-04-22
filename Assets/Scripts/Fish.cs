@@ -19,7 +19,7 @@ public class Fish : MonoBehaviour
 
     public bool isNibbling = false;
     public bool isHooked = false;
-    public bool isReeledIn = false;
+    public bool isReelable = false;
     
     private int currentTargetWaypoint = 0;
 
@@ -30,7 +30,10 @@ public class Fish : MonoBehaviour
     [SerializeField] EventManagerSO eventManager;
 
 
-
+    private void Start()
+    {
+        isReelable = false;
+    }
 
     private void OnEnable()
     {
@@ -103,7 +106,7 @@ public class Fish : MonoBehaviour
 
         }
 
-        else if (isHooked && isReeledIn)
+        else if (isHooked && isReelable)
         {
             targetBobber.ReelIn();
 

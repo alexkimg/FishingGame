@@ -68,6 +68,11 @@ public class FishIndicator : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        fish.isReeledIn = true;
+        Debug.Log($"Colliders colliding!");     //the debug is debugging
+        fish.isReelable = true;                 //but the bool not updating
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        fish.isReelable = false;
     }
 }
