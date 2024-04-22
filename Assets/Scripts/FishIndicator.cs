@@ -61,18 +61,18 @@ public class FishIndicator : MonoBehaviour
     }
     private void FixedUpdate()
     {
-     
-            MoveRandomly();
-        
+        MoveRandomly();        
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log($"Colliders colliding!");     //the debug is debugging
-        fish.isReelable = true;                 //but the bool not updating
+        Debug.Log($"Colliders colliding!");     
+        Fish fish = FindObjectOfType<Fish>();
+        fish.isReelable = true;                 
     }
     private void OnTriggerExit(Collider other)
     {
+        Fish fish = FindObjectOfType<Fish>();
         fish.isReelable = false;
     }
 }
