@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 
@@ -14,6 +15,8 @@ public class FishIndicator : MonoBehaviour
     [SerializeField] Transform waypointRight;
 
     [SerializeField] Fish fish;
+
+    [SerializeField] TMP_Text statusTextObject;
 
 
     public void RandomizeSpeed()
@@ -68,11 +71,13 @@ public class FishIndicator : MonoBehaviour
     {
         Debug.Log($"Colliders colliding!");     
         Fish fish = FindObjectOfType<Fish>();
-        fish.isReelable = true;                 
+        fish.isReelable = true;
+        statusTextObject.text = $"Reeling in!";
     }
     private void OnTriggerExit(Collider other)
     {
         Fish fish = FindObjectOfType<Fish>();
         fish.isReelable = false;
+        statusTextObject.text = "";
     }
 }
