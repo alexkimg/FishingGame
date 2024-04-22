@@ -19,6 +19,7 @@ public class Fish : MonoBehaviour
 
     public bool isNibbling = false;
     public bool isHooked = false;
+    public bool isReeledIn = false;
     
     private int currentTargetWaypoint = 0;
 
@@ -102,7 +103,7 @@ public class Fish : MonoBehaviour
 
         }
 
-        else if (isHooked)
+        else if (isHooked && isReeledIn)
         {
             targetBobber.ReelIn();
 
