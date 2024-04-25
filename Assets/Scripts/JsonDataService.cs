@@ -1,8 +1,8 @@
 using Newtonsoft.Json;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
+using System.Security.Cryptography;
+using System.Text;
 using UnityEngine;
 
 public class JsonDataService : IDataService
@@ -46,8 +46,27 @@ public class JsonDataService : IDataService
 
       }
 
-    //public T LoadData<T>(string RelativePath)
-    //{
+    public T LoadData<T>(string RelativePath)
+    {
+        string path = Application.persistentDataPath + RelativePath;
 
-    //}
+        if (!File.Exists(path))
+        {
+            Debug.LogError($"Cannot load file at {path}. File does not exist!");
+            throw new FileNotFoundException($"{path} does not exist!");
+        }
+
+        try
+        {
+           
+            T data = JsonConvert.DeserializeObject<T>(File.ReadAllText(path));
+            return data;
+        }
+        catch (Exception exception)
+        {
+            Debug.LogError($"Failed to load data due to: {exception.Message}");
+            throw exception;
+        }
+
+    }
 }
