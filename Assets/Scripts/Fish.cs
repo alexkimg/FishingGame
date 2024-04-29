@@ -4,6 +4,8 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+
+[RequireComponent(typeof(Collider))]
 public class Fish : MonoBehaviour
 {
     [SerializeField] FishPath path;
@@ -26,9 +28,27 @@ public class Fish : MonoBehaviour
     private float randomDelayMin = 1f;
     private float randomDelayMax = 3f;
 
+    public ItemDataSO itemData;
+    private Collider myCollider;
 
     [SerializeField] EventManagerSO eventManager;
 
+    private void Awake()
+    {
+        myCollider = GetComponent<Collider>();
+        myCollider.isTrigger = true;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        var inventory = other.transform.GetComponent<InventoryHolder>();
+        if (!inventory) return;
+        if (inventory && isReelable)
+        {
+            inventory.InventorySystem.AddToInventory(itemData, 1);
+            Destroy(this.gameObject);
+        }
+    }
 
     private void Start()
     {
