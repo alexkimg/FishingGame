@@ -29,6 +29,7 @@ public class Bobber : MonoBehaviour
     private void Awake()
     {
         isDetectable = false;
+        player = FindObjectOfType<Player>();
     }
 
 
