@@ -70,13 +70,13 @@ public class FishIndicator : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log($"Colliders colliding!");     
-        Fish fish = FindObjectOfType<Fish>();
+        fish = FindObjectOfType<Fish>();
         fish.isReelable = true;
         statusTextObject.text = $"Reeling in!";
     }
     private void OnTriggerExit(Collider other)
     {
-        Fish fish = FindObjectOfType<Fish>();
+        fish = FindObjectOfType<Fish>();
         fish.isReelable = false;
         statusTextObject.text = "";
     }

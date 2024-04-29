@@ -53,7 +53,7 @@ MonoBehaviour:
   targetBobber: {fileID: 0}
   bobberLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   isNibbling: 0
   isHooked: 0
   isReelable: 0
