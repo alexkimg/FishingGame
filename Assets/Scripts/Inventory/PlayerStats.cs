@@ -1,16 +1,15 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 [Serializable]
 public class PlayerStats
 {
-    //public List<Item> Inventory = new List<Item>()
-    //{
-    //    new Item()
-    //    {
-    //        Name = "Trout",
-    //        Value = 3,
-    //        Quantity = 1
-    //    }
-    //};
+    public SaveData Inventory;
+    public PlayerStats()
+    {
+        Inventory = new SaveData();
+    }
+    
 }
