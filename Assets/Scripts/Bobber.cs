@@ -14,6 +14,7 @@ public class Bobber : MonoBehaviour
 
     [SerializeField] EventManagerSO eventManager;
 
+    private Bobber b;
 
 
     private void OnEnable()
@@ -35,7 +36,8 @@ public class Bobber : MonoBehaviour
 
     public void ActivateBobber()
     {
-        isDetectable = true;
+        b = FindObjectOfType<Bobber>();
+        b.isDetectable = true;
     }
 
     public void ReelInDebug()
@@ -45,6 +47,8 @@ public class Bobber : MonoBehaviour
 
     public void ReelIn()
     {
+       b = FindObjectOfType<Bobber>();
+        b.isDetectable = false;
             transform.position = Vector3.MoveTowards(
             transform.position,
             player.transform.position,
