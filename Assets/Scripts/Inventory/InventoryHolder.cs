@@ -8,6 +8,9 @@ public class InventoryHolder : MonoBehaviour
 {
     [SerializeField] private int inventorySize;
     [SerializeField] protected InventorySystem inventorySystem;
+    [SerializeField] LevelManager levelManager;
+
+    private SaveData saveData = new SaveData();
 
     public InventorySystem InventorySystem => inventorySystem;
 
@@ -16,5 +19,20 @@ public class InventoryHolder : MonoBehaviour
     private void Awake()
     {
         inventorySystem = new InventorySystem(inventorySize);
+    }
+    private void Update()
+    {
+        saveData.invSystem = inventorySystem;
+    }
+}
+
+[System.Serializable]
+public struct SaveData
+{
+    public InventorySystem invSystem;
+
+    public SaveData(InventorySystem _invSystem)
+    {
+        invSystem = _invSystem;
     }
 }

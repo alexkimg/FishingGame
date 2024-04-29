@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] private PlayerStats playerStats;
+    [SerializeField] public PlayerStats playerStats = new PlayerStats();
 
     private IDataService dataService = new JsonDataService();
 

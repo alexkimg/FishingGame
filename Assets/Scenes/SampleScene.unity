@@ -3314,6 +3314,7 @@ MonoBehaviour:
   inventorySize: 4
   inventorySystem:
     inventorySlots: []
+  levelManager: {fileID: 2054172007}
 --- !u!114 &1811716079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3327,6 +3328,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fish: {fileID: 0}
+  playerStats:
+    Inventory:
+      invSystem:
+        inventorySlots: []
 --- !u!65 &1811716080
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3637,6 +3642,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24d530e02c666e4459bba94f867b91b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStats:
+    Inventory:
+      invSystem:
+        inventorySlots: []
 --- !u!4 &229080219350846388
 Transform:
   m_ObjectHideFlags: 0
@@ -3740,7 +3749,10 @@ MonoBehaviour:
   speedChangeTimer: 0
   waypointLeft: {fileID: 1724523785}
   waypointRight: {fileID: 2018181107}
-  fish: {fileID: 6229095024153790345, guid: 7aca2529d421c78448b25286534077eb, type: 3}
+  fish:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   statusTextObject: {fileID: 1399722692}
 --- !u!54 &6229095024376419989
 Rigidbody:
