@@ -16,6 +16,7 @@ public class Fish : MonoBehaviour
     //bobber bookkeping
     [SerializeField] Collider[] colliders;
     [SerializeField] Bobber bobber;
+    [SerializeField] Bobber b;
     [SerializeField] Bobber targetBobber;
     [SerializeField] LayerMask bobberLayer;
 
@@ -52,6 +53,8 @@ public class Fish : MonoBehaviour
 
     private void Start()
     {
+        isNibbling = false;
+        isHooked = false;
         isReelable = false;
     }
 
@@ -71,27 +74,33 @@ public class Fish : MonoBehaviour
 
         if (!isNibbling && !isHooked)
         {
-            if (bobber.isDetectable == true)
+            ScanForBobber();
+
+            if (targetBobber != null)
             {
-                ScanForBobber();
-
-                if (targetBobber != null)
+                if (targetBobber.isDetectable == true)
                 {
-                    transform.LookAt(targetBobber.transform.position);
-                    transform.position = Vector3.MoveTowards(
-                      transform.position,
-                      targetBobber.transform.position,
-                      (speed + 1f) * Time.deltaTime);
 
-                    if (Vector3.Distance(transform.position, targetBobber.transform.position) <= 1f)
-                    {
-                        isNibbling = true;
-                        targetBobber.isDetectable = false;
-                        StartCoroutine(FishNibbling());
+                        transform.LookAt(targetBobber.transform.position);
+                        transform.position = Vector3.MoveTowards(
+                          transform.position,
+                          targetBobber.transform.position,
+                          (speed + 1f) * Time.deltaTime);
+
+                        if (Vector3.Distance(transform.position, targetBobber.transform.position) <= 1f)
+                        {
+                            isNibbling = true;
+                            targetBobber.isDetectable = false;
+                            StartCoroutine(FishNibbling());
 
 
-                    }
+                        }
 
+
+
+
+
+                    
                 }
             }
 
@@ -115,6 +124,8 @@ public class Fish : MonoBehaviour
 
         else if (isNibbling)
         {
+            bobber = FindObjectOfType<Bobber>();
+            bobber.isDetectable = false;
             transform.position = Vector3.MoveTowards(
               transform.position,
               targetBobber.transform.position,

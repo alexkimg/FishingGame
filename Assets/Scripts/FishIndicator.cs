@@ -14,7 +14,7 @@ public class FishIndicator : MonoBehaviour
     [SerializeField] Transform waypointLeft;
     [SerializeField] Transform waypointRight;
 
-    [SerializeField] Fish fish;
+    [SerializeField] Fish[] fish;
 
     [SerializeField] TMP_Text statusTextObject;
 
@@ -70,14 +70,29 @@ public class FishIndicator : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log($"Colliders colliding!");     
-        fish = FindObjectOfType<Fish>();
-        fish.isReelable = true;
-        statusTextObject.text = $"Reeling in!";
+        fish = FindObjectsOfType<Fish>();
+        
+        foreach (Fish f in fish)
+        {
+            if (f.isHooked)
+            {                            
+                f.isReelable = true;
+                statusTextObject.text = $"Reeling in!";
+            }
+
+        }
     }
     private void OnTriggerExit(Collider other)
     {
-        fish = FindObjectOfType<Fish>();
-        fish.isReelable = false;
-        statusTextObject.text = "";
+        fish = FindObjectsOfType<Fish>();
+        foreach (Fish f in fish)
+        {
+            if (f.isHooked)
+            {
+                f.isReelable = false;
+                statusTextObject.text = "";
+            }
+
+        }
     }
 }
