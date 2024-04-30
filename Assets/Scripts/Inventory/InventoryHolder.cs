@@ -10,7 +10,7 @@ public class InventoryHolder : MonoBehaviour
     [SerializeField] protected InventorySystem inventorySystem;
     [SerializeField] LevelManager levelManager;
 
-    private SaveData saveData = new SaveData();
+    private PlayerStats saveData = new PlayerStats();
 
     public InventorySystem InventorySystem => inventorySystem;
 
@@ -22,7 +22,7 @@ public class InventoryHolder : MonoBehaviour
     }
     private void Update()
     {
-        saveData.invSystem = inventorySystem;
+        saveData.Inventory.invSystem = inventorySystem;
     }
 }
 
