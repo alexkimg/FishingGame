@@ -54,7 +54,7 @@ public class InventorySystem
     {
         invSlot = InventorySlots.Where(i => i.ItemData == itemToAdd).ToList();
 
-        return invSlot.Count > 1 ? true : false;
+        return invSlot == null ? false : true;
     }
 
     public bool HasFreeSlot(out InventorySlot freeSlot)
