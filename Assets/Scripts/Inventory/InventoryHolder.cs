@@ -1,10 +1,11 @@
+using Newtonsoft.Json.Bson;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 [System.Serializable]
-public class InventoryHolder : MonoBehaviour
+public abstract class InventoryHolder : MonoBehaviour
 {
     [SerializeField] private int inventorySize;
     [SerializeField] protected InventorySystem inventorySystem;
@@ -16,7 +17,7 @@ public class InventoryHolder : MonoBehaviour
 
     public static UnityAction<InventorySystem> OnDynamicInventoryDisplayRequested;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         inventorySystem = new InventorySystem(inventorySize);
     }
@@ -24,6 +25,8 @@ public class InventoryHolder : MonoBehaviour
     {
         saveData.invSystem = inventorySystem;
     }
+
+    protected abstract void LoadInventory(PlayerStats playerStats);
 }
 
 [System.Serializable]

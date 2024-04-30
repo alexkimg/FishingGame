@@ -5,14 +5,17 @@ using UnityEngine;
 public class Player : InventoryHolder
 
 {
-    [SerializeField] Fish fish;
     [SerializeField] private PlayerStats playerStats;
 
-    private void Awake()
+    protected override void LoadInventory(PlayerStats playerStats)
     {
-        transform.position = new Vector3(0f, 1f, -5f);
+        if( playerStats.Inventory.invSystem != null)
+        {
+            this.inventorySystem = playerStats.Inventory.invSystem;
+        }
     }
 
+<<<<<<< Updated upstream
     private void Update()
     {
         if (playerStats.Inventory.invSystem != null)
@@ -20,4 +23,6 @@ public class Player : InventoryHolder
             this.inventorySystem = playerStats.Inventory.invSystem;
         }
     }
+=======
+>>>>>>> Stashed changes
 }

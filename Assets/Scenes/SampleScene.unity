@@ -1580,7 +1580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 808a114a3c6a9b54a90b599245008ce5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryHolder: {fileID: 1811716078}
+  inventoryHolder: {fileID: 1811716079}
   slots:
   - {fileID: 7880359228977582493}
   - {fileID: 378956979}
@@ -3290,7 +3290,6 @@ GameObject:
   - component: {fileID: 1811716081}
   - component: {fileID: 1811716080}
   - component: {fileID: 1811716079}
-  - component: {fileID: 1811716078}
   - component: {fileID: 1811716084}
   m_Layer: 0
   m_Name: Player
@@ -3299,22 +3298,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1811716078
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1811716077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 820c2415a09db654d959e1be5eef05d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventorySize: 4
-  inventorySystem:
-    inventorySlots: []
-  levelManager: {fileID: 2054172007}
 --- !u!114 &1811716079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3327,7 +3310,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e0868e34b0a9044785d3f26355d9a71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fish: {fileID: 0}
+  inventorySize: 0
+  inventorySystem:
+    inventorySlots: []
+  levelManager: {fileID: 2054172007}
   playerStats:
     Inventory:
       invSystem:
