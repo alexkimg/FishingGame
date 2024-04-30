@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : InventoryHolder
 
 {
     [SerializeField] Fish fish;
@@ -13,11 +13,11 @@ public class Player : MonoBehaviour
         transform.position = new Vector3(0f, 1f, -5f);
     }
 
-    //private void Update()
-    //{
-    //    if ( Vector3.Distance(transform.position, fish.transform.position) <= 0.1f)
-    //    {
-    //        playerStats = 
-    //    }
-    //}
+    private void Update()
+    {
+        if (playerStats.Inventory.invSystem != null)
+        {
+            this.inventorySystem = playerStats.Inventory.invSystem;
+        }
+    }
 }
